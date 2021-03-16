@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    
+    <h1 class="text-center">Listado de H&eacute;roes</h1>
+    
+    <div *ngIf="heroesBorrados.length >0; else sinBorrados" class="container mb-5">
+        <h3>H&eacute;roes borrados <small>{{mostrarHeroesBorrados}}</small></h3>    
+    </div>
+
+    <ng-template #sinBorrados>
+        <h3>No hay h&eacute;roes borrados</h3>    
+    </ng-template>
+    
+    <div class="container">
+        <ul>
+            <li *ngFor="let heroe of heroes; let i = index">
+                {{ heroe }}
+                <button type="button" class="btn btn-danger btn-sm mb-3" (click)="borrarHeroe(i)">Borrar</button>
+            </li>
+        </ul>
+    </div>
+</div>
